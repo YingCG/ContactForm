@@ -37,13 +37,14 @@ namespace ContactForm
             this.labelFileName = new System.Windows.Forms.LinkLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnSend = new System.Windows.Forms.Button();
+            this.btnWrite = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(83, 48);
+            this.label1.ForeColor = System.Drawing.Color.Fuchsia;
+            this.label1.Location = new System.Drawing.Point(37, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 32);
             this.label1.TabIndex = 0;
@@ -53,10 +54,10 @@ namespace ContactForm
             // 
             this.TextTo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextTo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextTo.Location = new System.Drawing.Point(83, 92);
+            this.TextTo.Location = new System.Drawing.Point(83, 73);
             this.TextTo.Multiline = true;
             this.TextTo.Name = "TextTo";
-            this.TextTo.Size = new System.Drawing.Size(477, 50);
+            this.TextTo.Size = new System.Drawing.Size(625, 44);
             this.TextTo.TabIndex = 1;
             this.TextTo.Text = "To";
             // 
@@ -64,10 +65,10 @@ namespace ContactForm
             // 
             this.TextBody.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBody.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextBody.Location = new System.Drawing.Point(83, 230);
+            this.TextBody.Location = new System.Drawing.Point(83, 223);
             this.TextBody.Multiline = true;
             this.TextBody.Name = "TextBody";
-            this.TextBody.Size = new System.Drawing.Size(625, 184);
+            this.TextBody.Size = new System.Drawing.Size(625, 195);
             this.TextBody.TabIndex = 2;
             this.TextBody.Text = "Messages:";
             // 
@@ -75,18 +76,19 @@ namespace ContactForm
             // 
             this.TextSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextSubject.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextSubject.Location = new System.Drawing.Point(83, 163);
+            this.TextSubject.Location = new System.Drawing.Point(83, 129);
             this.TextSubject.Multiline = true;
             this.TextSubject.Name = "TextSubject";
-            this.TextSubject.Size = new System.Drawing.Size(477, 50);
+            this.TextSubject.Size = new System.Drawing.Size(625, 44);
             this.TextSubject.TabIndex = 3;
             this.TextSubject.Text = "Subject";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.ForeColor = System.Drawing.Color.SpringGreen;
             this.linkLabel1.LinkColor = System.Drawing.Color.Fuchsia;
-            this.linkLabel1.Location = new System.Drawing.Point(574, 92);
+            this.linkLabel1.Location = new System.Drawing.Point(596, 26);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(134, 32);
             this.linkLabel1.TabIndex = 4;
@@ -99,12 +101,10 @@ namespace ContactForm
             this.labelFileName.AutoSize = true;
             this.labelFileName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelFileName.LinkColor = System.Drawing.Color.Fuchsia;
-            this.labelFileName.Location = new System.Drawing.Point(586, 138);
+            this.labelFileName.Location = new System.Drawing.Point(83, 188);
             this.labelFileName.Name = "labelFileName";
-            this.labelFileName.Size = new System.Drawing.Size(122, 32);
+            this.labelFileName.Size = new System.Drawing.Size(0, 32);
             this.labelFileName.TabIndex = 5;
-            this.labelFileName.TabStop = true;
-            this.labelFileName.Text = "File Name";
             // 
             // openFileDialog1
             // 
@@ -116,7 +116,7 @@ namespace ContactForm
             this.btnSend.FlatAppearance.BorderSize = 0;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSend.Location = new System.Drawing.Point(596, 424);
+            this.btnSend.Location = new System.Drawing.Point(596, 427);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(112, 45);
             this.btnSend.TabIndex = 6;
@@ -124,11 +124,27 @@ namespace ContactForm
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
+            // btnWrite
+            // 
+            this.btnWrite.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnWrite.FlatAppearance.BorderSize = 0;
+            this.btnWrite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWrite.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnWrite.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnWrite.Location = new System.Drawing.Point(431, 427);
+            this.btnWrite.Name = "btnWrite";
+            this.btnWrite.Size = new System.Drawing.Size(159, 45);
+            this.btnWrite.TabIndex = 7;
+            this.btnWrite.Text = "Save as file";
+            this.btnWrite.UseVisualStyleBackColor = false;
+            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(67)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.btnWrite);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.labelFileName);
             this.Controls.Add(this.linkLabel1);
@@ -156,6 +172,7 @@ namespace ContactForm
         private System.Windows.Forms.LinkLabel labelFileName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.Button btnWrite;
     }
 }
 

@@ -23,7 +23,8 @@ namespace ContactForm
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.ShowDialog();
-
+            foreach (var fileName in openFileDialog1.FileNames)
+                labelFileName.Text = fileName;
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -54,6 +55,16 @@ namespace ContactForm
                 Console.WriteLine("Exception caught in CreateTestMessage2(): {0}",
                     ex.ToString());
             }
+        }
+
+        private void btnWrite_Click(object sender, EventArgs e)
+        {
+            string rootPath = @"C:\Users\yingg\source\repos\ContactForm\ContactForm\info\";
+           
+            StreamWriter newFile = new StreamWriter( rootPath + TextSubject.Text + ".txt");
+            newFile.WriteLine("Note to: " + TextTo.Text);
+            newFile.WriteLine("\n");
+            newFile.WriteLine("Message: " + TextBody.Text);
         }
     }
 }

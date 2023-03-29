@@ -23,24 +23,38 @@ namespace ContactForm
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.ShowDialog();
-            foreach (var fileName in openFileDialog1.FileNames)
-            labelFileName.Text = fileName;
 
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            using(MailMessage mail = new MailMessage("someone@email.com", TextTo.Text, TextSubject.Text, TextBody.Text))
-            using (SmtpClient smtp = new SmtpClient("email.com", 587))
+
+            string to = TextTo.Text;
+            string from = "someone@email.com";
+            MailMessage message = new MailMessage(from, to);
+            message.Subject = TextSubject.Text;
+            message.Body = TextBody.Text;
+            foreach (var fileName in openFileDialog1.FileNames)
             {
-                foreach (var fileName in openFileDialog1.FileNames)
-                    if (File.Exists(fileName))
-                        mail.Attachments.Add(new Attachment(fileName));
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("someone@email.com", "password");
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
+                message.Attachments.Add(new Attachment(fileName));
+            }
+            var client = new SmtpClient("sandbox.smtp.mailtrap.io", 2525)
+            {
+                Credentials = new NetworkCredential("b84ad7480750e9", "557b3881e9785b"),
+                EnableSsl = true
+            };
+
+
+            try
+            {
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught in CreateTestMessage2(): {0}",
+                    ex.ToString());
             }
         }
     }
 }
+
